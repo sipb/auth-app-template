@@ -14,6 +14,7 @@
             </p>
           </v-col>
         </v-row>
+
         <v-row
           v-if="kerb === ''"
         >
@@ -118,5 +119,17 @@ export default {
       },
     ],
   }),
+  created() {
+    fetch('backend.py')
+      .then((response) => response.json())
+      .then((j) => {
+        this.kerb = j.kerb;
+      })
+      .catch((err) => {
+        console.log('Got this error trying to get kerb from backend.'
+                  + ' Probably means you need to go to :444');
+        console.warn(err);
+      });
+  },
 };
 </script>
