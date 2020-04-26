@@ -22,3 +22,8 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## Deploy to wisp.mit.edu
+```
+./deploy.sh [kerb]
+```
