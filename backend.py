@@ -12,6 +12,8 @@ output = {}
 if 'SSL_CLIENT_S_DN_Email' in os.environ:
   output = { "kerb" : os.environ['SSL_CLIENT_S_DN_Email'] }
   pass
+else:
+  error = 'Status: 401 Unauthorized\n'
 #  content += os.environ['SSL_CLIENT_S_DN_Email']
 #  # add to database or something more fancy, probably create a password, do fancy checks and stuff
 #  # click this link -- whatever you're at now plus https and :444
