@@ -1,94 +1,38 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer />
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
     <v-content>
-      <v-container>
-        <v-row class="text-center">
-          <v-col cols="12">
-            <v-img
-              :src="require('./assets/logo.svg')"
-              class="my-3"
-              contain
-              height="200"
-            />
-          </v-col>
-
-          <v-col class="mb-4">
+      <v-container class="text-center">
+        <v-row>
+          <v-col class="my-4">
             <h1 class="display-2 font-weight-bold mb-3">
-              Welcome to Vuetify
+              SIPB Wireless Internet Service Provider
             </h1>
 
             <p class="subheading font-weight-regular">
-              For help and collaboration with other Vuetify developers,
-              <br>please join our online
-              <a
-                href="https://community.vuetifyjs.com"
-                target="_blank"
-              >Discord Community</a>
+              A way for off-campus members of the MIT community to access free,
+              high speed internet.
             </p>
           </v-col>
-
-          <v-col
-            class="mb-5"
-            cols="12"
-          >
+        </v-row>
+        <v-row
+          v-if="kerb === ''"
+        >
+          <v-col>
             <h2 class="headline font-weight-bold mb-3">
-              What's next?
+              Please log in to manage your internet access
             </h2>
 
-            <v-row justify="center">
-              <a
-                v-for="(next, i) in whatsNext"
-                :key="i"
-                :href="next.href"
-                class="subheading mx-3"
-                target="_blank"
-              >
-                {{ next.text }}
-              </a>
-            </v-row>
+            <v-btn
+              outlined
+              color="primary"
+            >
+              Login
+            </v-btn>
           </v-col>
+        </v-row>
 
-          <v-col
-            class="mb-5"
-            cols="12"
-          >
+        <v-row v-else>
+          <v-col cols="12">
             <h2 class="headline font-weight-bold mb-3">
               Important Links
             </h2>
@@ -136,6 +80,7 @@
 export default {
   name: 'App',
   data: () => ({
+    kerb: '',
     ecosystem: [
       {
         text: 'vuetify-loader',
@@ -170,20 +115,6 @@ export default {
       {
         text: 'Articles',
         href: 'https://medium.com/vuetify',
-      },
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer',
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
       },
     ],
   }),
