@@ -24,6 +24,7 @@
             </h2>
 
             <v-btn
+              href="https://wisp.mit.edu:444/"
               outlined
               color="primary"
             >
